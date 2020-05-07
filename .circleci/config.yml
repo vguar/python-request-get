@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-    
-    steps:
-      - setup_remote_docker
       - run:
           name: Build application Docker image
           command: |
