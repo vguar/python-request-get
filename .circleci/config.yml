@@ -1,7 +1,7 @@
 # Java Gradle CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
-#
+## echo ${HELLO_TOKEN} | docker login -u "vguar+circleci" --password-stdin quay.io
 jobs:
   build:
     working_directory: /app
@@ -18,6 +18,6 @@ jobs:
       - deploy:
            name: Push application Docker image
            command: |
-               echo ${HELLO_TOKEN} | docker login -u "vguar+circleci" --password-stdin quay.io
+               docker login -u="vguar+circleci" -p=${HELLO_TOKEN} quay.io
                docker tag app:latest quay.io/vguar/python-request-get:latest
                docker push quay.io/vguar/python-request-get:latest
