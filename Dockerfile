@@ -12,4 +12,4 @@ ADD main.py .
 RUN adduser -D --uid 1001 user
 USER 1001
 
-CMD /usr/local/bin/python main.py --url $URL
+CMD /usr/local/bin/python url-request.py --url $URL
