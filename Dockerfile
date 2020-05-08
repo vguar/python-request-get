@@ -7,7 +7,7 @@ RUN apk add curl bind-tools bash
 
 RUN ["pip", "install", "-r", "requirements.txt"]
 
-ADD main.py .
+ADD url-request.py .
 
 RUN adduser -D --uid 1001 user
 USER 1001
