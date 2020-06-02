@@ -12,4 +12,4 @@ ADD url-request.py .
 RUN adduser -D --uid 1001 user
 USER 1001
 
-CMD /usr/local/bin/python url-request.py --url $URL
+CMD ddtrace-run /usr/local/bin/python url-request.py --url $URL
