@@ -1,15 +1,14 @@
-FROM python:alpine
+FROM python
 
 WORKDIR /usr/src/app
 ADD requirements.txt .
-
-RUN apk add curl bind-tools bash
 
 RUN ["pip", "install", "-r", "requirements.txt"]
 
 ADD url-request.py .
 
-RUN adduser -D --uid 1001 user
+RUN useradd -u 1001 user
+
 USER 1001
 
 CMD ddtrace-run /usr/local/bin/python url-request.py --url $URL
